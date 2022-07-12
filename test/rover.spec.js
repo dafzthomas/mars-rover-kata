@@ -80,7 +80,7 @@ describe("Mars Rover Tests", () => {
 
     rover.moveBackwards();
 
-    expect(rover.position).toEqual([2, 5]);
+    expect(rover.position).toEqual([4, 5]);
   });
 
   it("turns right", () => {

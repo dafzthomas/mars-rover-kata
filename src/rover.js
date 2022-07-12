@@ -7,6 +7,20 @@ export class Rover {
     this.#direction = direction;
   }
 
+  #MOVE_FORWARD_ACTIONS = {
+    N: () => (this.#position[1] = this.#position[1] + 1),
+    S: () => (this.#position[1] = this.#position[1] - 1),
+    E: () => (this.#position[0] = this.#position[0] + 1),
+    W: () => (this.#position[0] = this.#position[0] - 1),
+  };
+
+  #MOVE_BACKWARDS_ACTIONS = {
+    N: () => (this.#position[1] = this.#position[1] - 1),
+    S: () => (this.#position[1] = this.#position[1] + 1),
+    E: () => (this.#position[0] = this.#position[0] - 1),
+    W: () => (this.#position[0] = this.#position[0] + 1),
+  };
+
   get position() {
     return this.#position;
   }
@@ -16,27 +30,11 @@ export class Rover {
   }
 
   moveForward() {
-    if (this.#direction === "N") {
-      this.#position[1] = this.#position[1] + 1;
-    } else if (this.#direction === "E") {
-      this.#position[0] = this.#position[0] + 1;
-    } else if (this.#direction === "S") {
-      this.#position[1] = this.#position[1] - 1;
-    } else if (this.#direction === "W") {
-      this.#position[0] = this.#position[0] - 1;
-    }
+    this.#MOVE_FORWARD_ACTIONS[this.#direction]();
   }
 
   moveBackwards() {
-    if (this.#direction === "N") {
-      this.#position[1] = this.#position[1] - 1;
-    } else if (this.#direction === "E") {
-      this.position[0] = this.#position[0] - 1;
-    } else if (this.#direction === "S") {
-      this.#position[1] = this.#position[1] + 1;
-    } else if (this.#direction === "W") {
-      this.#position[0] = this.#position[0] - 1;
-    }
+    this.#MOVE_BACKWARDS_ACTIONS[this.#direction]();
   }
 
   turnRight() {
