@@ -1,0 +1,26 @@
+{
+  "name": "mars-rover-kata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dafzthomas/mars-rover-kata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dafzthomas/mars-rover-kata/issues"
+  },
+  "homepage": "https://github.com/dafzthomas/mars-rover-kata#readme",
+  "devDependencies": {
+    "jest": "^28.1.2"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "type": "module"
+}
