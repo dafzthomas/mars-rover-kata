@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "test:mutations": "stryker run"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/dafzthomas/mars-rover-kata#readme",
   "devDependencies": {
+    "@stryker-mutator/core": "^6.1.2",
+    "@stryker-mutator/jest-runner": "^6.1.2",
     "jest": "^28.1.2"
   },
   "jest": {

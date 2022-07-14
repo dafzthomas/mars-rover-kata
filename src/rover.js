@@ -21,6 +21,20 @@ export class Rover {
     W: () => (this.#position[0] = this.#position[0] + 1),
   };
 
+  #TURN_RIGHT_ACTIONS = {
+    N: () => (this.#direction = "E"),
+    S: () => (this.#direction = "W"),
+    E: () => (this.#direction = "S"),
+    W: () => (this.#direction = "N"),
+  };
+
+  #TURN_LEFT_ACTIONS = {
+    N: () => (this.#direction = "W"),
+    S: () => (this.#direction = "E"),
+    E: () => (this.#direction = "N"),
+    W: () => (this.#direction = "S"),
+  };
+
   get position() {
     return this.#position;
   }
@@ -38,26 +52,10 @@ export class Rover {
   }
 
   turnRight() {
-    if (this.#direction === "N") {
-      this.#direction = "E";
-    } else if (this.#direction === "E") {
-      this.#direction = "S";
-    } else if (this.#direction === "S") {
-      this.#direction = "W";
-    } else if (this.#direction === "W") {
-      this.#direction = "N";
-    }
+    this.#TURN_RIGHT_ACTIONS[this.#direction]();
   }
 
   turnLeft() {
-    if (this.#direction === "N") {
-      this.#direction = "W";
-    } else if (this.#direction === "W") {
-      this.#direction = "S";
-    } else if (this.#direction === "S") {
-      this.#direction = "E";
-    } else if (this.#direction === "E") {
-      this.#direction = "N";
-    }
+    this.#TURN_LEFT_ACTIONS[this.#direction]();
   }
 }
